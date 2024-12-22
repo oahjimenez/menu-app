@@ -1,0 +1,32 @@
+.category-list-container {
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+
+    ul {
+        list-style: none;
+        padding: 0px;
+    }
+    
+}
+
+
+.category {
+    margin: 0;
+    height:60px;
+    vertical-align: baseline;
+
+    :hover {
+        background-color: rgba(0, 115, 96,0.1);
+        color:#ffffff;
+    }
+}
+
+.category-content {
+    font-size: 16px;
+    vertical-align: baseline;
+    margin: 0;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
