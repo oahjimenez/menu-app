@@ -1,0 +1,9 @@
+<h1>Categories</h1>
+<ul>
+  <li *ngFor="let category of categories">
+      <div>
+          <p>{{category.strCategory}}</p>
+          <button (click)="updateCategory(category)" >Show details</button>
+      </div>
+  </li>
+</ul>

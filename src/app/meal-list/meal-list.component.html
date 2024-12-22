@@ -1,0 +1,11 @@
+<div>
+
+  <h1>Yaya Meal- of {{category.strCategory}}</h1>
+
+  <ul>
+    <div *ngFor="let meal of meals?.meals">
+      <h2>{{meal.strMeal}}</h2>
+      <img src="{{meal.strMealThumb}}" (click)="openDialog(meal)" alt="thumb" >
+    </div>
+  </ul>
+</div>

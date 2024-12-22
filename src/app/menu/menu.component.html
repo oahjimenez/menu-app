@@ -1,0 +1,5 @@
+<h1>Menu de Yaya</h1>
+<div style="display: flex; flex-grow: grow">
+  <app-category-list (updateCategoryEvent)="updateCategory($event)" ></app-category-list>
+  <app-menu-details [selectedCategory]="selectedCategory" *ngIf="showCategory"></app-menu-details>
+</div>
