@@ -3,11 +3,13 @@ import { Category } from '../category';
 import { CategoryListComponent } from '../category-list/category-list.component';
 import { Component } from '@angular/core';
 import { MenuDetailsComponent } from "../menu-details/menu-details.component";
+import { AreaListComponent } from '../area-list/area-list.component';
+import { MealSearchComponent } from '../meal-search/meal-search.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CategoryListComponent, NgIf, MenuDetailsComponent],
+  imports: [CategoryListComponent, NgIf, MenuDetailsComponent, AreaListComponent, MealSearchComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })

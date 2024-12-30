@@ -1,7 +1,16 @@
-<h1>Menu de Yayas</h1>
+<h1>Menu de Yaya</h1>
+
 <div class="menu-container" layout="row">
   <div class="category-list">
     <app-category-list (updateCategoryEvent)="updateCategory($event)" ></app-category-list>
+  </div>
+
+  <div>
+    <app-area-list></app-area-list>
+  </div>
+
+  <div>
+    <app-meal-search></app-meal-search>
   </div>
 
   <div class="menu-details">
