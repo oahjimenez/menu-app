@@ -11,7 +11,7 @@ import { Meal } from '../meal';
 @Component({
   selector: 'app-meal-list',
   standalone: true,
-  imports: [NgFor, MealDetailsDialogComponent],
+  imports: [NgFor],
   templateUrl: './meal-list.component.html',
   styleUrl: './meal-list.component.scss'
 })

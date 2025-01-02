@@ -20,6 +20,11 @@
         background-color: rgba(0, 115, 96,0.1);
         color:#ffffff;
     }
+
+    &.selected {
+        background-color: rgba(255, 187, 0, 0.1);
+        color:#9a2a39;
+    }
 }
 
 .category-content {

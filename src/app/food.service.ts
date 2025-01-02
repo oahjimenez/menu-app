@@ -14,7 +14,10 @@ export class FoodService {
 
 
   readonly API_CATEGORY_MEALS = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
-  readonly API_MEAL_DETAILS = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+  readonly API_MEAL_DETAILS_FROM_ID = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+
+
+  readonly API_MEAL_DETAILS_FROM_NAME = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
   constructor(private httpClient : HttpClient) { }
 
@@ -34,8 +37,13 @@ export class FoodService {
   }
 
   getMealDetails(mealId : string) : Observable<MealList>{
-    console.log("Calling getMealDetails url:" + `${this.API_MEAL_DETAILS}${mealId}`);
-    return this.httpClient.get<MealList>(`${this.API_MEAL_DETAILS}${mealId}`);
+    console.log("Calling getMealDetails url:" + `${this.API_MEAL_DETAILS_FROM_ID}${mealId}`);
+    return this.httpClient.get<MealList>(`${this.API_MEAL_DETAILS_FROM_ID}${mealId}`);
+  }
+
+  getMealFromName(mealName : string) : Observable<MealList>{
+    console.log("Calling getMealFromName url:" + `${this.API_MEAL_DETAILS_FROM_ID}${mealName}`);
+    return this.httpClient.get<MealList>(`${this.API_MEAL_DETAILS_FROM_NAME}${mealName}`);
   }
 
   //* TODO: fix methods using rxjs more adequate fonctiones *//
