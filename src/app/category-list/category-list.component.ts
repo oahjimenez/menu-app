@@ -18,7 +18,7 @@ import { map } from 'rxjs';
 export class CategoryListComponent {
 
   categories!: Category[];
-  selectedCategoryName! : String;
+  selectedCategory! : Category | undefined;
 
   @Output() updateCategoryEvent = new EventEmitter<Category>();
 
@@ -33,15 +33,19 @@ export class CategoryListComponent {
       this.store.select(getSelectedMeal).subscribe( (meal: Meal | undefined) => {
         console.log("CategoryList getSelectedMealName Meal name selected:", meal);
 
-        this.selectedCategoryName = meal?.strCategory || '';
-        console.log("selected category: ", this.selectedCategoryName);
+        let category = this.categories.find(category => category.strCategory == meal?.strCategory);
+        if (category) {
+          this.selectedCategory = category;
+          console.log("selected category: ", this.selectedCategory);
+          this.updateCategory(this.selectedCategory);
+        }
       }); // update the category name with the selected meal name when it changes in the store and reflect it in the component as well
       }) // subscribe to selected meal name changes to update it in the component as well
   }
 
   updateCategory(category: Category) {
     console.log("clicked category list:", category);
-    this.selectedCategoryName = category.strCategory;
+    this.selectedCategory = category;
     this.updateCategoryEvent.emit(category);
   }
 
