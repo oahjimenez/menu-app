@@ -1,6 +1,8 @@
+import { getSelectedMeal } from './../state/selectors/meal.selectors';
+import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from './../category';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FoodService } from '../food.service';
 import { MealList } from '../meal-list';
@@ -18,28 +20,29 @@ import { Meal } from '../meal';
 export class MealListComponent {
 
   meals!: MealList;
-  @Input() category! : Category;
+  @Input() category!: Category;
+  @Output() selectMealEvent = new EventEmitter<any>();
 
-  constructor(private router: ActivatedRoute, private foodService: FoodService, private dialog: MatDialog) { }
+  selectedMeal: Meal | undefined;
+
+  constructor(private router: ActivatedRoute, private foodService: FoodService, private dialog: MatDialog, private store: Store) { }
 
   ngOnInit() {
     console.log("on init meals component");
-    console.log("category-name",this.category.strCategory);
-  // REVIEW PIPE DOCS
-  // this.foodService.getDishes(this.category).pipe(
-  //     map(
-  //       (data: Dish) => {
-  //         console.log(data);
-  //         this.dishes = data;
-  //       }
-  //     ));
-  this.foodService.getMeals(this.category.strCategory).subscribe(data => {
-    console.log(data);
-    this.meals = data;
-  });
+    console.log("category-name", this.category.strCategory);
+    this.updateMealsOfCategory(this.category.strCategory);
+
+    this.store.select(getSelectedMeal).subscribe((meal: Meal | undefined) => {
+      if (meal) {
+        this.selectedMeal = meal;
+        this.updateMealsOfCategory(meal.strCategory);
+        this.openDialog(this.selectedMeal);
+        this.selectMealEvent.emit(null);
+      }
+    });
   }
 
-  openDialog(meal : Meal) {
+  openDialog(meal: Meal) {
     console.log("clicked meal dialog", meal);
     this.dialog.open(MealDetailsDialogComponent, {
       data: {
@@ -47,4 +50,12 @@ export class MealListComponent {
       },
     });
   }
+
+  updateMealsOfCategory(categoryName : string){
+    this.foodService.getMeals(categoryName).subscribe(data => {
+      console.log(data);
+      this.meals = data;
+    });
+  }
+
 }

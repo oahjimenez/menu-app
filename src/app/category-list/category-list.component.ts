@@ -48,5 +48,4 @@ export class CategoryListComponent {
     this.selectedCategory = category;
     this.updateCategoryEvent.emit(category);
   }
-
 }

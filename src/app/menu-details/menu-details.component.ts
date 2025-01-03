@@ -14,5 +14,10 @@ import { MealListComponent } from "../meal-list/meal-list.component";
 export class MenuDetailsComponent {
 
   @Input() selectedCategory! : Category;
+  selectedIndex = 0;
+
+  openMealListTab(event : any){
+    this.selectedIndex = 1;
+  }
 
 }
