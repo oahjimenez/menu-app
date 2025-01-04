@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { MenuDetailsComponent } from "../menu-details/menu-details.component";
 import { AreaListComponent } from '../area-list/area-list.component';
 import { MealSearchComponent } from '../meal-search/meal-search.component';
+import { Area } from '../area';
 
 @Component({
   selector: 'app-menu',
@@ -15,15 +16,25 @@ import { MealSearchComponent } from '../meal-search/meal-search.component';
 })
 export class MenuComponent {
 
-
-  selectedCategory!: Category;
+  selectedCategory!: Category | undefined;
+  selectedArea!: Area | undefined;
   showCategory: boolean = false;
+  showArea: boolean = false;
 
   constructor() { }
 
   updateCategory(category: Category) {
     this.selectedCategory = category;
+    this.selectedArea = undefined;
     this.showCategory = true;
+    this.showArea = !this.showCategory;
+  }
+
+  updateArea(area: Area) {
+    this.selectedArea = area;
+    this.selectedCategory = undefined;
+    this.showArea = true;
+    this.showCategory = !this.showArea;
   }
 
 }

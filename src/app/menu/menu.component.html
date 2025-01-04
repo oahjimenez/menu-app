@@ -6,7 +6,7 @@
   </div>
 
   <div>
-    <app-area-list></app-area-list>
+    <app-area-list (updateAreaEvent)="updateArea($event)"></app-area-list>
   </div>
 
   <div>
@@ -14,6 +14,6 @@
   </div>
 
   <div class="menu-details">
-    <app-menu-details [selectedCategory]="selectedCategory" *ngIf="showCategory"></app-menu-details>
+    <app-menu-details [showArea]="showArea" [showCategory]="showCategory" [selectedCategory]="selectedCategory" [selectedArea]="selectedArea" *ngIf="showCategory || showArea"></app-menu-details>
   </div>
 </div>

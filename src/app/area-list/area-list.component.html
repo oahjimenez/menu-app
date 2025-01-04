@@ -1,8 +1,8 @@
 <h1> Areeas </h1>
 <div>
     <ul>
-        <div *ngFor="let area of areas">
-            <p>{{area.name}}</p>
+        <div class="area" [ngClass]="{'selected': area?.name === selectedAreaName}"  *ngFor="let area of areas">
+            <p (click)="updateArea(area)">{{area.name}}</p>
         </div>
     </ul>
 </div>

@@ -12,6 +12,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CategoryDetailComponent {
 
-  @Input() category! : Category;
+  @Input() category! : Category | undefined;
 
 }
