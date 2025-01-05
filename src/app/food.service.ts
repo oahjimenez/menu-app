@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, flatMap, map, mergeMap } from 'rxjs';
+import { Observable, flatMap, map, mergeMap, mergeAll } from 'rxjs';
 import { MealList } from './meal-list';
 import { CategoryList } from './menu';
 
@@ -53,12 +53,13 @@ export class FoodService {
   }
 
   //* TODO: fix methods using rxjs more adequate fonctiones *//
-  getAllMealNames() : Observable<Observable<MealList>>{
+  getAllMealNames() : Observable<MealList>{
     console.log("Calling getAllMealNames");
     return this.getAllCategories().pipe(
-      map(categoryList => categoryList.categories),
-      map(categories => categories.map(category => category.strCategory)),
-      mergeMap(categoryNames => categoryNames.map(categoryName => { return this.getMealsOfCategory(categoryName) } ))
+      map(categoryList => categoryList.categories), //category list, all list resolved
+      map(categories => categories.map(category => category.strCategory)), // observable with a list of category names, only one observable
+      mergeMap(categoryNames => categoryNames.map(categoryName => { return this.getMealsOfCategory(categoryName) } )),
+      mergeAll()
     )
   }
 }

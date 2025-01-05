@@ -33,12 +33,11 @@ export class MealSearchComponent {
 
   ngOnInit() {
     console.log("meal-search component initialized");
-    this.foodService.getAllMealNames().subscribe(mealListObservable =>
-      mealListObservable.subscribe(mealList => {
-        mealList.meals.forEach(meal => this.meals.push(meal));
-        console.log("meal names", this.meals);
-      }
-      ));
+    this.foodService.getAllMealNames().subscribe(mealList => {
+      mealList.meals.forEach(meal => this.meals.push(meal));
+      console.log("meal names", this.meals);
+    }
+    );
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -50,7 +49,7 @@ export class MealSearchComponent {
     console.log("filter value", value, " this.meals", this.meals);
 
     //ceci ne devrait pas arriver, on recoit le type meal au lieu de la chaine nom
-    if (value && typeof value !== 'string' &&'strMeal' in value) {
+    if (value && typeof value !== 'string' && 'strMeal' in value) {
       value = value.strMeal;
     }
     const filterValue = value.trim().toLowerCase();
