@@ -2,10 +2,12 @@
 
   <h1>Yaya Meal of {{category?.strCategory}} {{area?.name}}</h1>
 
-  <ul>
-    <div *ngFor="let meal of meals?.meals">
-      <h2>{{meal.strMeal}}</h2>
-      <img src="{{meal.strMealThumb}}" (click)="openDialog(meal)" alt="thumb" >
-    </div>
-  </ul>
+  <div class="meal-list">
+    <ul>
+      <div class="meal" *ngFor="let meal of meals?.meals">
+        <p class="title">{{meal.strMeal}}</p>
+        <img class="meal-thumb" src="{{meal.strMealThumb}}" (click)="openDialog(meal)" alt="thumb">
+      </div>
+    </ul>
+  </div>
 </div>

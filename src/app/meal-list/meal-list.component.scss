@@ -1,0 +1,27 @@
+.meal-list {
+    display: flex;
+    flex-direction :row;
+    align-items: center;
+
+}
+
+.meal {
+
+    display: inline-block;
+    margin: 8px 20px;
+    width: 400px;
+
+    > .title {
+        text-wrap: wrap;
+        text-align: center;
+        font-size: 26px;
+        font-weight: lighter;
+    }
+
+    > .meal-thumb {
+        width: 400px;
+        border-radius: 10%;
+    }
+
+
+}
