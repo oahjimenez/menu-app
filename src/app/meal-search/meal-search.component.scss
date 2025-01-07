@@ -1,0 +1,7 @@
+.search-bar-form {
+    width: 100%;
+}
+
+::ng-deep .mat-mdc-autocomplete-panel {
+    max-height: 600px !important;
+}

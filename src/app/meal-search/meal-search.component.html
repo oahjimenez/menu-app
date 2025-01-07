@@ -1,13 +1,12 @@
+<div>
   <form>
-    <mat-form-field>
-      <input type="search"
-             placeholder="Dish name"
-             aria-label="Search"
-             [formControl]="myControl"
-             matInput [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="mealSelected($event.option.value)" [displayWith]="displayMeal">
-        @for (option of filteredOptions | async; track option) { 
-          <mat-option [value]="option">{{option.strMeal}}</mat-option>
+    <mat-form-field class="search-bar-form">
+      <input type="search" placeholder="Dish name" aria-label="Search" [formControl]="myControl" matInput
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" class="search-bar"(optionSelected)="mealSelected($event.option.value)"
+        [displayWith]="displayMeal">
+        @for (option of filteredOptions | async; track option) {
+        <mat-option [value]="option">{{option.strMeal}}</mat-option>
         }
       </mat-autocomplete>
       <button matSuffix mat-icon-button aria-label="Search">
@@ -15,3 +14,4 @@
       </button>
     </mat-form-field>
   </form>
+</div>
