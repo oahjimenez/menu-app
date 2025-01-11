@@ -1,7 +1,7 @@
 <div class="category-list-container">
   <ul>
     <div class="category-container">
-      <div class="category-container" [ngClass]="{'selected': category?.strCategory == selectedCategory?.strCategory}" *ngFor="let category of categories">
+      <div class="category" [ngClass]="{'selected': category?.strCategory == selectedCategory?.strCategory}" *ngFor="let category of categories">
           <li>
               <p class="category-name" (click)="updateCategory(category)">{{category.strCategory}}</p>
           </li>

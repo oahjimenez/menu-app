@@ -6,11 +6,12 @@ import { MenuDetailsComponent } from "../menu-details/menu-details.component";
 import { AreaListComponent } from '../area-list/area-list.component';
 import { MealSearchComponent } from '../meal-search/meal-search.component';
 import { Area } from '../area';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CategoryListComponent, NgIf, MenuDetailsComponent, AreaListComponent, MealSearchComponent],
+  imports: [CategoryListComponent, NgIf, MenuDetailsComponent, AreaListComponent, MealSearchComponent, MatTabsModule, CategoryListComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -20,6 +21,7 @@ export class MenuComponent {
   selectedArea!: Area | undefined;
   showCategory: boolean = false;
   showArea: boolean = false;
+  selectedIndex = 0;
 
   constructor() { }
 

@@ -1,28 +1,33 @@
-<div class="menu-container">
-  <span class="main-title">Menu de Yaya</span>
 
-  <div>
-    <div class="navbar">
-      <span class="navbar-item">Categories</span>
-      <span class="navbar-item">Areas</span>
-      <div class="meal-search-container">
-        <app-meal-search></app-meal-search>
-      </div>
+<div>
+  <span class="main-title">Menu de Yaya</span>
+</div>
+<div class="menu-container">
+  <div class="navbar">
+    <mat-tab-group [(selectedIndex)]=selectedIndex>
+      <mat-tab class="navbar-item" label="Categories">
+        <div class="category-list">
+          <app-category-list (updateCategoryEvent)="updateCategory($event)"></app-category-list>
+        </div>
+      </mat-tab>
+
+      <mat-tab class="navbar-item" label="Areas">
+        <div class="category-list">
+          <app-area-list (updateAreaEvent)="updateArea($event)"></app-area-list>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+
+  <div class="menu-details-container">
+    <div class="meal-search-container">
+      <app-meal-search></app-meal-search>
     </div>
 
-    <div class="menu-details-container">
-      <div class="category-list">
-        <app-category-list (updateCategoryEvent)="updateCategory($event)"></app-category-list>
-      </div>
-
-      <div>
-        <app-area-list (updateAreaEvent)="updateArea($event)"></app-area-list>
-      </div>
-
-      <div class="menu-details">
-        <app-menu-details [showArea]="showArea" [showCategory]="showCategory" [selectedCategory]="selectedCategory"
-          [selectedArea]="selectedArea" *ngIf="showCategory || showArea"></app-menu-details>
-      </div>
+    <div class="menu-details">
+      <app-menu-details [showArea]="showArea" [showCategory]="showCategory" [selectedCategory]="selectedCategory"
+        [selectedArea]="selectedArea" *ngIf="showCategory || showArea"></app-menu-details>
     </div>
   </div>
 </div>

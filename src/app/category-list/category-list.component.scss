@@ -1,3 +1,5 @@
+$category-focus-font-size: 24px; 
+
 .category-list-container {
 
     background-color: #85FFBD;
@@ -13,24 +15,27 @@
 }
 
 
-.category-container {
+.category {
     margin: 0;
     height:60px;
     vertical-align: baseline;
+    font-size: 18px;
+    line-height: 18px;
 
     &:hover {
-        background-color: rgba(0, 115, 96,0.1);
-        color:#000000;
+        background-color: rgba(31, 59, 0, 0.4);
+        color:#ffffff;
+        font-size: #{$category-focus-font-size};
     }
 
     &.selected {
-        background-color: rgba(255, 0, 187, 0.596);
-        color:#016b06;
+        background-color: rgba(31, 59, 0, 0.7);
+        color:#ffffff;
+        font-size: #{$category-focus-font-size};
     }
 }
 
 .category-name {
-    font-size: 18px;
     vertical-align: baseline;
     margin: 20px 0;
     padding: 20px;
