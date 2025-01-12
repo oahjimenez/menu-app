@@ -1,7 +1,9 @@
-<div>
+<div class="area-list-container">
     <ul>
-        <div class="area" [ngClass]="{'selected': area?.name === selectedAreaName}"  *ngFor="let area of areas">
-            <p (click)="updateArea(area)">{{area.name}}</p>
+        <div class="area-container">
+            <div class="area" [ngClass]="{'selected': area?.name === selectedAreaName}"  *ngFor="let area of areas">
+                <p class="area-name" (click)="updateArea(area)">{{area.name}}</p>
+            </div>
         </div>
     </ul>
 </div>

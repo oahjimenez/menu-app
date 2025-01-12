@@ -1,0 +1,10 @@
+@mixin auth {
+    :host {
+
+        // The styles you want to share
+        .test {
+            color: red;
+            background-color: aqua;
+        }
+    }
+}

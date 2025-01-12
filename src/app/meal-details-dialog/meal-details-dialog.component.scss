@@ -1,0 +1,22 @@
+.meal-dialog {
+    text-align: center;
+    border-radius: 30%;
+}
+
+.meal-dialog-content {
+    padding: 40px ;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.meal-instructions {
+    text-align: justify;
+    width: 500px;
+
+}
+
+.meal-dialog-thumb {
+    border-radius: 1%;
+    width: 500px;
+}
